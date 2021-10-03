@@ -24,8 +24,8 @@ nav{
 .nav-btn{
   width: 140px;
   color: white;
-  background: none;
-  border: solid 2px rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.651);
+  border: none;
   border-radius: 12px;
   padding: 10px 20px;
   cursor: pointer;
@@ -33,9 +33,7 @@ nav{
   font-weight: 600;
 }
 .nav-btn:hover{
-  background: rgb(253, 253, 253);
-  color: rgb(46, 32, 245);
-
+  background: rgba(255, 255, 255, 0.288);
 }
 .nav-menu{
   display: none;
