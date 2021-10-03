@@ -1,7 +1,7 @@
 import '../App.css';
 
 const navbar = () =>{
-    const Hello =  () =>{
+    const NavActive =  () =>{
         const navlink = document.querySelector('.nav-links');
         navlink.classList.toggle('nav-active');
     }
@@ -18,7 +18,7 @@ const navbar = () =>{
                 <li>Contact</li>
                 <li><button className="nav-btn">Sign In</button></li>
             </ul>
-           <div className='nav-menu' onClick={Hello}>
+           <div className='nav-menu' onClick={NavActive}>
                <div className='line1'></div>
                <div className='line2'></div>
                <div className='line3'></div>
