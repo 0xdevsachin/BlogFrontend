@@ -12,7 +12,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(32, 178, 245, 0.63);
+    background-color: rgba(32, 178, 245);
     font-weight: 600;
     position: fixed;
 }
@@ -28,7 +28,7 @@ nav {
 .nav-btn {
     width: 140px;
     color: white;
-    background: rgba(255, 255, 255, 0.651);
+    background: rgba(46, 96, 233, 0.459);
     border: none;
     border-radius: 12px;
     padding: 10px 20px;
@@ -107,6 +107,7 @@ nav {
     width: 200px;
     height: 51px;
     background-color: rgba(32, 178, 245, 0.63);
+    box-shadow: none;
 }
 
 .Home h1 {
@@ -123,4 +124,42 @@ nav {
         justify-content: space-between;
         padding: 10px 20px;
     }
+}
+
+.Footer-Area {
+    background-color: #20b2f5;
+    min-height: 20vh;
+    padding: 20px 0;
+}
+
+.Footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    padding: 20px 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Footer div {
+    width: 250px;
+}
+
+.Footer-li li {
+    list-style: none;
+    margin: 3px;
+}
+
+.Social-Footer-li li {
+    list-style: none;
+    margin: 3px;
+    display: inline-block;
+}
+
+.Footer-hr {
+    padding: 12px 0;
+    width: 85%;
+    margin: auto;
 }
