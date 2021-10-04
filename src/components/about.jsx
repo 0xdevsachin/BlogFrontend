@@ -11,8 +11,7 @@ const About = ()=>{
         <div className="About-Content">
             <div>
                 <p>Online Publishing Platform. Where you can Read about job opportunities, career advice, expert's insights, new features and products.
-                We got you covered with fact-based articles Gwoth and career guides. 
-                Read Blog</p>
+                We got you covered with fact-based articles Gwoth and career guides.</p>
             </div>
             <div className="cardDiv">
                 <div className='card'>
