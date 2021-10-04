@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+
+/* NavBar CSS */
+
 nav {
     color: #fff;
     width: 100%;
@@ -60,9 +63,6 @@ nav {
         padding: 8px 6px;
         background-color: rgba(32, 178, 245);
     }
-    /* .nav-btn,.nav-links{
-    display: none;
-  } */
     .nav-menu {
         cursor: pointer;
         display: block;
@@ -86,6 +86,9 @@ nav {
 .nav-active {
     transform: translateX(0%);
 }
+
+
+/* Home Page CSS */
 
 .Home {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/home.jpg');
@@ -125,6 +128,132 @@ nav {
         padding: 10px 20px;
     }
 }
+
+
+/* About Page CSS */
+
+.About {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/about.jpg');
+    min-height: 110vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 140px;
+}
+
+.About-header {
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    word-spacing: 8px;
+}
+
+.About-Content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    width: 100%;
+    padding: 5px 20px 20px 20px;
+}
+
+.About-Content div p {
+    font-size: 1.3rem;
+    word-spacing: 2px;
+}
+
+.larger {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.About-Content>div {
+    padding: 20px;
+    min-width: 210px;
+    max-width: 500px;
+    min-height: 30vh;
+}
+
+.cardDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cardDiv>div {
+    background-color: rgba(32, 178, 245, 0.63);
+    width: 200px;
+    border-radius: 12px;
+    height: 150px;
+}
+
+.cardDiv>div:nth-child(2n) {
+    margin-top: 52px;
+}
+
+.card {
+    font-weight: 600;
+    padding: 12px 8px;
+}
+
+.card p {
+    margin-bottom: 25px;
+}
+
+.card-content {
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.About-btn {
+    width: 200px;
+    color: white;
+    background: rgb(32, 131, 245);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+    height: 60px;
+    letter-spacing: 2px;
+    word-spacing: 7px;
+}
+
+@media screen and (max-width:1050px) {
+    .About-Content>div {
+        width: 100%;
+    }
+    .About-Content {
+        flex-direction: column;
+    }
+    .About-btn {
+        margin-bottom: 22px;
+    }
+}
+
+@media screen and (max-width:520px) {
+    .About-Content>div {
+        padding: 0;
+    }
+    .cardDiv>div {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .cardDiv>div:nth-child(2n) {
+        margin-top: 20px;
+    }
+}
+
+
+/* Footer CSS */
 
 .Footer-Area {
     background-color: #20b2f5;
