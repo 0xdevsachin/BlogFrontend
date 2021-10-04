@@ -20,7 +20,7 @@ const Footer = () =>{
         <div className='Footer-hr'>
         <hr  />
         <p style={{textAlign:'center',color:'white',margin:'12px 0'}}>&#169;2021. All rights Reserved</p>
-        <p style={{textAlign:'center',color:'white',margin:'12px 0'}}>Created by <a href="https://github.com/0xdevsachin" style={{color:'white'}} target='_blank'>Dev Sachin</a></p>
+        <p style={{textAlign:'center',color:'white',margin:'12px 0'}}>Created by <a rel='noreferrer' href="https://github.com/0xdevsachin" style={{color:'white'}} target='_blank'>Dev Sachin</a></p>
         </div>
         </div>
         </>
