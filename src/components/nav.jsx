@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../App.css';
 const navbar = () =>{
     const NavActive =  () =>{
@@ -13,7 +13,6 @@ const navbar = () =>{
                 <h4>Logo</h4>
             </div>
             <ul className="nav-links">
-                <Router>
                 <Link to="/">
                     <li>Home</li>
                 </Link>
@@ -29,7 +28,6 @@ const navbar = () =>{
                 <Link to="/signin">
                     <li><button className="nav-btn">Sign In</button></li>
                 </Link>
-                </Router>
             </ul>
            <div className='nav-menu' onClick={NavActive}>
                <div className='line1'></div>

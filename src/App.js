@@ -5,19 +5,19 @@ import Footer from './components/footer';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 function App() {
   return (
+    <Router>
     <div className="App">
       <Navbar />
-      <Router>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/about" exact component={Home} />
-          <Route path="/work" exact component={Home} />
-          <Route path="/contact" exact component={Home} />
-          <Route path="/signin" exact component={Home} />
+          <Route path="/about" component={Home} />
+          <Route path="/work" component={Home} />
+          <Route path="/contact" component={Home} />
+          <Route path="/signin" component={Home} />
         </Switch>
-      </Router>
       <Footer />
     </div>
+    </Router>
   );
 }
 export default App;
