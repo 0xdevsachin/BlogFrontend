@@ -9,7 +9,11 @@ function App() {
       <Navbar />
       <Router>
         <Switch>
-          <Route path='/' exact component={Home} />
+          <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={Home} />
+          <Route path="/work" exact component={Home} />
+          <Route path="/contact" exact component={Home} />
+          <Route path="/signin" exact component={Home} />
         </Switch>
       </Router>
       <Footer />

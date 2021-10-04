@@ -1,5 +1,6 @@
+import React from 'react';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 import '../App.css';
-
 const navbar = () =>{
     const NavActive =  () =>{
         const navlink = document.querySelector('.nav-links');
@@ -12,11 +13,23 @@ const navbar = () =>{
                 <h4>Logo</h4>
             </div>
             <ul className="nav-links">
-                <li>Home</li>
-                <li>About</li>
-                <li>Work</li>
-                <li>Contact</li>
-                <li><button className="nav-btn">Sign In</button></li>
+                <Router>
+                <Link to="/">
+                    <li>Home</li>
+                </Link>
+                <Link to="/about">
+                    <li>About</li>
+                </Link>
+                <Link to="/work">
+                    <li>Work</li>
+                </Link>
+                <Link to="/contact">
+                    <li>Contact</li>
+                </Link>
+                <Link to="/signin">
+                    <li><button className="nav-btn">Sign In</button></li>
+                </Link>
+                </Router>
             </ul>
            <div className='nav-menu' onClick={NavActive}>
                <div className='line1'></div>
