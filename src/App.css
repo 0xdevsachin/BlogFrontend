@@ -146,7 +146,8 @@ nav {
 }
 
 .About-header {
-    text-align: center;
+    text-align: left;
+    padding: 5px 20px 20px 20px;
     color: white;
     font-size: 1.3rem;
     letter-spacing: 2px;
@@ -249,6 +250,54 @@ nav {
     }
     .cardDiv>div:nth-child(2n) {
         margin-top: 20px;
+    }
+}
+
+
+/* Work CSS */
+
+.Work-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/work.jpg');
+    min-height: 110vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+.Work-bg>div {
+    min-height: 350px;
+    width: 250px;
+    background-color: #20b2f5a6;
+    border-radius: 10px;
+    padding: 220px 20px 0 20px;
+    margin: 20px 50px;
+    color: white;
+}
+
+.Work-bg>div:hover {
+    background-color: #20b2f5;
+}
+
+.Work-btn {
+    margin-top: 10px;
+    top: 10px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+@media screen and (max-width:720px) {
+    .Work-bg>div {
+        margin: 20px 10px;
     }
 }
 
