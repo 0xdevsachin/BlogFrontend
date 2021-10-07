@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import About from './components/about';
 import Work from './components/work';
+import Signin from './components/signin';
 function App() {
   return (
     <Router>
@@ -15,7 +16,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/work" component={Work} />
           <Route path="/contact" component={Home} />
-          <Route path="/signin" component={Home} />
+          <Route path="/signin" component={Signin} />
           <Redirect from="*" to="/" />
         </Switch>
       <Footer />

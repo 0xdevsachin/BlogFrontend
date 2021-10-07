@@ -60,8 +60,9 @@ nav {
         overflow-x: hidden;
     }
     nav {
-        padding: 8px 6px;
         background-color: rgba(32, 178, 245);
+        justify-content: space-between;
+        padding: 10px 20px;
     }
     .nav-menu {
         cursor: pointer;
@@ -122,10 +123,6 @@ nav {
 @media screen and (max-width:500px) {
     .Home h1 {
         font-size: 1.3rem;
-    }
-    nav {
-        justify-content: space-between;
-        padding: 10px 20px;
     }
 }
 
@@ -298,6 +295,83 @@ nav {
 @media screen and (max-width:720px) {
     .Work-bg>div {
         margin: 20px 10px;
+    }
+}
+
+
+/* Sign In CSS */
+
+.Signin {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/login.jpg');
+    min-height: 110vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Sign-in-form {
+    min-height: 80vh;
+    width: 480px;
+    background-color: #20b2f5c5;
+    border-radius: .350rem;
+    padding: 60px 10px 20px 10px;
+    text-align: center;
+    color: white;
+}
+
+.input-form input {
+    width: 90%;
+    height: 5vh;
+    margin: 20px 0;
+    border: none;
+    padding: 15px 15px 15px 40px;
+    border-radius: 4px;
+    color: #4b5b6d;
+}
+
+.input-form i {
+    position: absolute;
+}
+
+.icon {
+    z-index: initial;
+    margin-top: 15px;
+    padding: 15px;
+    color: rgba(32, 178, 245);
+    width: 70px;
+    text-align: left;
+}
+
+input:focus {
+    outline: none;
+}
+
+.Sign-btn {
+    width: 200px;
+    height: 45px;
+    border: none;
+    background-color: rgb(48, 97, 231);
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    margin-top: 50px;
+    font-weight: 700;
+}
+
+.form-link {
+    width: 90%;
+    text-align: right;
+    display: inline-block;
+    color: #fff;
+}
+
+@media screen and (max-width:500px) {
+    .Sign-in-form {
+        width: 90%;
     }
 }
 
