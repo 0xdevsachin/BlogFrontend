@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import About from './components/about';
 import Work from './components/work';
 import Signin from './components/signin';
+import Signup from './components/signup';
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/work" component={Work} />
           <Route path="/contact" component={Home} />
           <Route path="/signin" component={Signin} />
+          <Route path="/signup" component={Signup} />
           <Redirect from="*" to="/" />
         </Switch>
       <Footer />
