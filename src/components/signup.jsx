@@ -14,7 +14,7 @@ const Signup = () =>{
         e.preventDefault();
         if(FormData.cpassword === FormData.password){
             console.log(FormData);
-            axios.post('/api/auth/signup', FormData).then((data)=>{
+            axios.post("/api/auth/signup", FormData).then((data)=>{
                 console.log(data);
                 alert(data.data.msg);
                 if(data.data.redirect){
