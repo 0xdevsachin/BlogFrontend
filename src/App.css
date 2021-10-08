@@ -363,7 +363,12 @@ input:focus {
 }
 
 .form-link {
-    width: 90%;
+    display: flex;
+    justify-content: end;
+    padding: 10px 20px;
+}
+
+.form-link2 {
     text-align: right;
     display: inline-block;
     color: #fff;
