@@ -17,8 +17,8 @@ const Signin = () =>{
                     <label htmlFor=""><i className="fa fa-key icon"> </i></label>
                     <input type="password" placeholder="Password" />
                     <br />
-                    <div>
-                        <Link to="/signup"><p className="form-link">Create new account</p></Link>
+                    <div className="form-link">
+                        <Link to="/signup"><p className="form-link2">Create new account</p></Link>
                     </div>
                     <button className="Sign-btn">Sign In</button>
                 </form>
