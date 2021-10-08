@@ -13,7 +13,7 @@ const Signup = () =>{
     const Register = async (e) =>{
         e.preventDefault();
         console.log(FormData);
-        axios.post('/api', FormData).then().catch((err)=>{
+        axios.post('/api/auth/signup', FormData).then().catch((err)=>{
             console.log(err);
         })
         alert('Account Registered successfully');
