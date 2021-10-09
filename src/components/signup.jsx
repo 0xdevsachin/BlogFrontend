@@ -24,6 +24,9 @@ const Signup = () =>{
                 console.log(err);
             })
         }
+        else{
+            alert("Password & Confirm Password must be same")
+        }
     }
     return(
         <>
