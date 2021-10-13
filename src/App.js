@@ -7,6 +7,7 @@ import About from './components/about';
 import Work from './components/work';
 import Signin from './components/signin';
 import Signup from './components/signup';
+import Dashboard from './components/user/dashboard';
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/contact" component={Home} />
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
+          <Route path="/dashboard" component={Dashboard} />
           <Redirect from="*" to="/" />
         </Switch>
       <Footer />
