@@ -4,6 +4,11 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 const Write = () =>{
     const history = useHistory();
+    const Logindata = localStorage.getItem('Bloglogin')
+    if(!Logindata){
+        alert("Oops something Went Wrong! Please Sign in Again")
+        window.location.reload();
+    }
     var BlogData = {
         BlogTitle : "",
         BlogImage:"",
@@ -11,10 +16,16 @@ const Write = () =>{
     }
     const SubmitBlog = (e) =>{
         e.preventDefault();
+        if(!localStorage.getItem('Bloglogin')){
+            alert("Oops something Went Wrong! Please Sign in Again")
+            window.location.reload();
+            history.push('/')
+            return;
+        }
         if(BlogData.BlogTitle !== '' && BlogData.BlogContent !== ''){
             axios.post("/api/PublishBlog", BlogData).then((data) =>{
                 alert("Blog Published Successfully !");
-                history.push('/dashboard')
+                history.push('/')
             }).catch((err) =>{
                 alert(err);
             })

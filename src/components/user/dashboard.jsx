@@ -1,7 +1,14 @@
 import React from 'react';
 import '../../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 const Dashboard = () =>{
+    const data = localStorage.getItem('Bloglogin')
+    const history = useHistory();
+    if(!data){
+        alert("Oops something Went Wrong! Please Sign in Again")
+        window.location.reload();
+        history.push('/signin');
+    }
     return(
         <div className="DashBoard">
             {/* <h1>No Published blogs </h1>
