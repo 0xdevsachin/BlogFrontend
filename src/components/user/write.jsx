@@ -17,7 +17,6 @@ const Write = () =>{
     const SubmitBlog = (e) =>{
         e.preventDefault();
         if(!localStorage.getItem('Bloglogin')){
-            alert("Oops something Went Wrong! Please Sign in Again")
             window.location.reload();
             history.push('/')
             return;
