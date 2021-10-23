@@ -13,6 +13,7 @@ const Write = () =>{
         BlogTitle : "",
         BlogImage:"",
         BlogContent:"",
+        userID : Logindata
     }
     const SubmitBlog = (e) =>{
         e.preventDefault();
@@ -23,7 +24,11 @@ const Write = () =>{
         }
         if(BlogData.BlogTitle !== '' && BlogData.BlogContent !== ''){
             axios.post("/api/PublishBlog", BlogData).then((data) =>{
-                alert("Blog Published Successfully !");
+                alert(data.data.msg)
+                if(data.data.redirect === true){
+                    localStorage.removeItem('Bloglogin');
+                    window.location.reload();
+                }
                 history.push('/')
             }).catch((err) =>{
                 alert(err);
