@@ -457,6 +457,50 @@ textarea {
 }
 
 
+/* Read Blog */
+
+.ReadBlog {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/contact.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.ReadBlogContent {
+    text-align: left;
+    width: 85%;
+    min-height: 80vh;
+    background-color: #20b2f5ad;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+.ReadBlogContent h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ReadBlogContent p {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width:500px) {
+    .ReadBlogContent {
+        width: 95%;
+    }
+}
+
+
 /* Footer CSS */
 
 .Footer-Area {

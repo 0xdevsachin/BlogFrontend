@@ -9,6 +9,7 @@ import Signin from './components/signin';
 import Signup from './components/signup';
 import Dashboard from './components/user/dashboard';
 import Write from './components/user/write';
+import ReadBlog from './components/user/ReadBlog';
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/write" component={Write} />
+          <Route path="/readblog/:id" component={ReadBlog} />
           <Redirect from="*" to="/" />
         </Switch>
       <Footer />
