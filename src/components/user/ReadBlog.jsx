@@ -9,12 +9,10 @@ const ReadBlog = ({match}) =>{
         BlogContent : '',
         BlogImage :'',
         _id :'',
-        msg : '',
-        code : ''
     }]);
     const getblog = async () =>{
         const BlogData = await axios.get(`/api/Getblog/${match.params.id}`);
-        setBlogs(BlogData.data);
+        setBlogs(BlogData.data.msg);
     }
     useEffect(() =>{
         getblog();
@@ -33,7 +31,6 @@ const ReadBlog = ({match}) =>{
                     <h1>{readblogs.BlogTitle}</h1>
                     {readblogs.BlogImage !== '' ? <img src={readblogs.BlogImage} style={{height:"50vh", width:"100%", objectFit:"contain", margin:"20px auto"}} alt="Blog" /> : <></>}
                     <p>{readblogs.BlogContent}</p>
-                    <p>Published By : {readblogs._id}</p>
                     </div>
                 )}
             </div>
