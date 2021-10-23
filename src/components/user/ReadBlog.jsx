@@ -7,6 +7,7 @@ const ReadBlog = ({match}) =>{
     const [readblogs, setBlogs] = useState([{
         BlogTitle : '',
         BlogContent : '',
+        BlogImage :'',
         _id :'',
         msg : '',
         code : ''
@@ -31,6 +32,7 @@ const ReadBlog = ({match}) =>{
                 ) : (
                     <>
                     <h1>{readblogs.BlogTitle}</h1>
+                    {readblogs.BlogImage !== '' ? <img src={readblogs.BlogImage} style={{height:"50vh", width:"100%", objectFit:"contain", margin:"20px auto"}} alt="Blog" /> : <p></p>}
                     <p>{readblogs.BlogContent}</p>
                     <p>Published By : {readblogs._id}</p>
                     </>
