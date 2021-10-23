@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-
+import { Link } from 'react-router-dom';
 const Dashboard = () =>{
     return(
         <div className="DashBoard">
@@ -18,6 +18,9 @@ const Dashboard = () =>{
                     <button className="nav-btn">Delete</button>
                 </div>
             </div>
+            <Link to="/write">
+                <button className="nav-btn">Publish New Blog</button>
+            </Link>
         </div>
     )
 }

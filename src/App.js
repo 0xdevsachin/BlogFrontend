@@ -8,6 +8,7 @@ import Work from './components/work';
 import Signin from './components/signin';
 import Signup from './components/signup';
 import Dashboard from './components/user/dashboard';
+import Write from './components/user/write';
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signin" component={Signin} />
           <Route path="/signup" component={Signup} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/write" component={Write} />
           <Redirect from="*" to="/" />
         </Switch>
       <Footer />

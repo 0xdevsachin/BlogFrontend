@@ -421,6 +421,42 @@ input:focus {
 }
 
 
+/* Write Blog */
+
+.writeBlog {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/contact2.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+.writeBlog-form {
+    width: 100%;
+}
+
+.writeBlog-form input,
+textarea {
+    margin: 18px;
+    width: 80%;
+    border: none;
+    outline: none;
+    min-height: 6vh;
+    padding: 10px;
+    border-radius: 10px;
+    color: #4b5b6d;
+    font-weight: 400;
+}
+
+
 /* Footer CSS */
 
 .Footer-Area {
