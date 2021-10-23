@@ -3,8 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import '../App.css';
 const Navbar = ({ index }) =>{
     const history = useHistory();
-    console.log(`NavBar Index : ${index}`)
-    const loginStatus = localStorage.getItem('Bloglogin');
     const [navState] = useState([
         [{
             title : "Home",
@@ -35,8 +33,7 @@ const Navbar = ({ index }) =>{
         }
     ]
     ]);
-    console.log(loginStatus);
-    console.log(navState)
+
     const removeItem = () =>{
         localStorage.removeItem('Bloglogin')
         window.location.reload();
@@ -69,7 +66,7 @@ const Navbar = ({ index }) =>{
                     <Link to="/contact">
                         <li>{navState[index][3].title4}</li>
                     </Link>
-                    {index == 1 ? (
+                    {index === 1 ? (
                         <>
                             <li><button onClick={removeItem} className="nav-btn">Sign Out</button></li>
                         </>

@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <Navbar index={i} />
         <Switch>
-          {i == 1 ? (
+          {i === 1 ? (
             <>
              <Route path="/" exact component={Dashboard} />
              <Route path="/write" component={Write} />
