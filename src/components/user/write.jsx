@@ -1,6 +1,6 @@
 import React from "react";
 import '../../App.css';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from 'axios';
 const Write = () =>{
     const history = useHistory();
