@@ -30,6 +30,7 @@ function App() {
              <Route path="/" exact component={Dashboard} />
              <Route path="/write" component={Write} />
              <Route path="/blogs" component={Work} />
+             <Route path="/readblog/:id" component={ReadBlog} />
              <Redirect from="*" to="/" />
              </>
           ) :(
@@ -40,11 +41,10 @@ function App() {
            <Route path="/contact" component={Home} />
            <Route path="/signin" component={Signin} />
            <Route path="/signup" component={Signup} />
+           <Route path="/readblog/:id" component={ReadBlog} />
            <Redirect from="*" to="/" />
            </>
           )}
-          <Route path="/readblog/:id" component={ReadBlog} />
-          <Redirect from="*" to="/" />
         </Switch>
       <Footer />
     </div>
