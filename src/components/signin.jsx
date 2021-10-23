@@ -14,12 +14,17 @@ const Signin = () =>{
             axios.post("/api/auth/signin", FormData).then((data)=>{
                 console.log(data);
                 alert(data.data.msg)
+                localStorage.setItem('Bloglogin', data.data.user[0]._id);
+                window.location.reload();
+                history.push('/');
             }).catch((err)=>{
                 console.log(err);
+                localStorage.removeItem('Bloglogin');
             })
         }
         else{
             alert("Something Went Wrong :(")
+            localStorage.removeItem('Bloglogin');
             history.push('/signin')
         }
     }

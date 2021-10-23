@@ -11,19 +11,38 @@ import Dashboard from './components/user/dashboard';
 import Write from './components/user/write';
 import ReadBlog from './components/user/ReadBlog';
 function App() {
+  var i = 0;
+  const status = () =>{
+    const data = localStorage.getItem('Bloglogin');
+    if(data){
+      i = 1;
+    }
+    console.log(i);
+  }
+  status();
   return (
     <Router>
     <div className="App">
-      <Navbar />
+      <Navbar index={i} />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/work" component={Work} />
-          <Route path="/contact" component={Home} />
-          <Route path="/signin" component={Signin} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/write" component={Write} />
+          {i == 1 ? (
+            <>
+             <Route path="/" exact component={Dashboard} />
+             <Route path="/write" component={Write} />
+             <Route path="/blogs" component={Work} />
+             <Redirect from="*" to="/" />
+             </>
+          ) :(
+            <>
+           <Route path="/" exact component={Home} />
+           <Route path="/about" component={About} />
+           <Route path="/blogs" component={Work} />
+           <Route path="/contact" component={Home} />
+           <Route path="/signin" component={Signin} />
+           <Route path="/signup" component={Signup} />
+           <Redirect from="*" to="/" />
+           </>
+          )}
           <Route path="/readblog/:id" component={ReadBlog} />
           <Redirect from="*" to="/" />
         </Switch>

@@ -1,7 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import '../App.css';
-const navbar = () =>{
+const Navbar = ({ index }) =>{
+    const history = useHistory();
+    console.log(`NavBar Index : ${index}`)
+    const loginStatus = localStorage.getItem('Bloglogin');
+    const [navState] = useState([
+        [{
+            title : "Home",
+        },
+        {
+            title2 : "About",
+            link : "/about"
+        },
+        {
+            title3 : "Blogs"
+        },
+        {
+            title4 : "Contact",
+        },
+    ],[
+        {
+            title : "DashBoard",
+        },
+        {
+            title2 : "Write",
+            link : "/write"
+        },
+        {
+            title3 : "Blogs"
+        },
+        {
+            title4 : "Contact",
+        }
+    ]
+    ]);
+    console.log(loginStatus);
+    console.log(navState)
+    const removeItem = () =>{
+        localStorage.removeItem('Bloglogin')
+        window.location.reload();
+        history.push('/signin')
+    }
     const NavActive =  () =>{
         const navlink = document.querySelector('.nav-links');
         navlink.classList.toggle('nav-active');
@@ -17,21 +57,29 @@ const navbar = () =>{
                 <h4>Logo</h4>
             </div>
             <ul className="nav-links">
-                <Link to="/">
-                    <li>Home</li>
-                </Link>
-                <Link to="/about">
-                    <li>About</li>
-                </Link>
-                <Link to="/work">
-                    <li>Work</li>
-                </Link>
-                <Link to="/contact">
-                    <li>Contact</li>
-                </Link>
-                <Link to="/signin">
-                    <li><button className="nav-btn">Sign In</button></li>
-                </Link>
+            <Link to="/">
+                        <li>{navState[index][0].title}</li>
+                    </Link>
+                    <Link to={navState[index][1].link}>
+                        <li>{navState[index][1].title2}</li>
+                    </Link>
+                    <Link to="/blogs">
+                        <li>{navState[index][2].title3}</li>
+                    </Link>
+                    <Link to="/contact">
+                        <li>{navState[index][3].title4}</li>
+                    </Link>
+                    {index == 1 ? (
+                        <>
+                            <li><button onClick={removeItem} className="nav-btn">Sign Out</button></li>
+                        </>
+                    ) : (
+                        <>
+                        <Link to="/signin">
+                            <li><button className="nav-btn">Sign In</button></li>
+                        </Link>
+                        </>
+                    )}
             </ul>
            <div className='nav-menu' onClick={NavActive}>
                <div className='line1'></div>
@@ -43,4 +91,4 @@ const navbar = () =>{
     );
 }
 
-export default navbar;
+export default Navbar;
