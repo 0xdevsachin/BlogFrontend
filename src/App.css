@@ -130,7 +130,7 @@ nav {
 /* About Page CSS */
 
 .About {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/about.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/about.jpg');
     min-height: 110vh;
     width: 100%;
     background-position: center;
@@ -254,7 +254,7 @@ nav {
 /* Work CSS */
 
 .Work-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/work.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/work.jpg');
     min-height: 110vh;
     width: 100%;
     background-position: center;
@@ -302,7 +302,7 @@ nav {
 /* Sign In CSS */
 
 .Signin {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/login.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/login.jpg');
     min-height: 110vh;
     width: 100%;
     background-position: center;
@@ -385,7 +385,7 @@ input:focus {
 
 .DashBoard {
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/dash.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/dash.jpg');
     min-height: 100vh;
     width: 100%;
     background-position: center;
@@ -485,12 +485,18 @@ textarea {
     margin: 40px auto;
 }
 
-.ReadBlogContent h1 {
-    text-align: center;
-    margin-bottom: 30px;
+.Blog-Area {
+    width: 100%;
 }
 
-.ReadBlogContent p {
+.Blog-Area p {
+    margin: 20px auto;
+    min-height: 20px;
+    word-wrap: break-word;
+}
+
+.ReadBlogContent h1 {
+    text-align: center;
     margin-bottom: 30px;
 }
 

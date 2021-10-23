@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 const Dashboard = () =>{
+    const [Blog, setBlog] = useState([{
+        BlogTitle : '',
+        BlogContent : '',
+        _id : ''
+    }])
     const data = localStorage.getItem('Bloglogin')
     const history = useHistory();
     if(!data){
@@ -9,25 +15,57 @@ const Dashboard = () =>{
         window.location.reload();
         history.push('/signin');
     }
+    useEffect(() =>{
+        async function fetchData(){
+            var local = localStorage.getItem('Bloglogin');
+        await axios.post(`/api/getuserblog/${local}`).then((recvdata) =>{
+            setBlog(recvdata.data);
+        }).catch((err) =>{
+            console.log(err);
+        })
+    }
+    fetchData();
+    }, [])
     return(
         <div className="DashBoard">
-            {/* <h1>No Published blogs </h1>
-            <button className="nav-btn">Start Writing</button> */}
+            {Blog.length === 0 ? (
+                <>
+                    <h1>No Published blogs </h1>
+                    <Link to="/write">
+                        <button className="nav-btn">Publish First Blog </button>
+                    </Link>
+                </>
+            )
+            : (
+                <>
             <h1>Your Publications </h1>
-            <div className="Blog-list">
-                <div>
-                    <h1>Blog title</h1>
-                    <p>This is Some Random Content of the Blog </p>
-                </div>
-                <div>
-                    <button className="nav-btn">Read</button>
-                    <button className="nav-btn">Edit</button>
-                    <button className="nav-btn">Delete</button>
-                </div>
-            </div>
+            {Blog.map((blog) =>{
+                return(
+                    <>
+                    <div id={blog._id} className="Blog-list">
+                        <div>
+                            <h1>{blog.BlogTitle}</h1>
+                        </div>
+                        <div>
+                            <Link to={`/readblog/${blog._id}`}><button className="nav-btn">Read</button></Link>
+                            <button onClick={() =>{
+                                axios.delete(`/api/deleteBlog/${blog._id}`).catch((err) =>{
+                                    console.log("Error !")
+                                })
+                                alert("Blog deleted Successfully !")
+                                document.getElementById(blog._id).style.display ="none";
+                            }} className="nav-btn">Delete</button>
+                        </div>
+                    </div>
+                    </>
+                )
+            })}
             <Link to="/write">
                 <button className="nav-btn">Publish New Blog</button>
             </Link>
+            </>
+            )}
+            
         </div>
     )
 }
