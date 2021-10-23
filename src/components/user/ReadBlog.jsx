@@ -3,17 +3,16 @@ import React, {useEffect, useState} from "react";
 import "../../App.css";
 
 
-const ReadBlog = () =>{
+const ReadBlog = ({match}) =>{
     const [readblogs, setBlogs] = useState([{
         BlogTitle : '',
         BlogContent : '',
         _id :''
     }]);
     const getblog = async () =>{
-        await axios.get('/api/Getblog').then((data) =>{
-            console.log(data.data);
-            setBlogs(data.data);
-        })
+        const BlogData = await axios.get(`/api/Getblog/${match.params.id}`);
+        setBlogs(BlogData.data);
+        console.log(BlogData.data)
     }
     useEffect(() =>{
         getblog();
@@ -21,9 +20,9 @@ const ReadBlog = () =>{
     return(
         <div className ="ReadBlog">
             <div className="ReadBlogContent">
-                <h1>{readblogs[0].BlogTitle}</h1>
-                <p>{readblogs[0].BlogContent}</p>
-                <p>Published By : {readblogs[0]._id}</p>
+                <h1>{readblogs.BlogTitle}</h1>
+                <p>{readblogs.BlogContent}</p>
+                <p>Published By : {readblogs._id}</p>
             </div>
         </div>
     )
