@@ -6,14 +6,13 @@ const Footer = () =>{
         <>
         <div className='Footer-Area'>
         <div className='Footer'>
-            <div><h3>Logo</h3></div>
+            <div><h2>Blogger</h2></div>
             <div>
                 <ul className='Social-Footer-li'>
-                    <li>icon</li>
-                    <li>icon</li>
-                    <li>icon</li>
-                    <li>icon</li>
-                    <li>icon</li>
+                    <li><a href="http://github.com/0xdevsachin"><i className="fab fa-github Footer-icons"></i></a></li>
+                    <li><a href="http://linkedin.com/in/0xsachin"><i className="fab fa-linkedin-in Footer-icons"></i></a></li>
+                    <li><a href="https://twitter.com/0xsachin"><i className="fab fa-twitter Footer-icons"></i></a></li>
+                    <li><a href="https://sachin-verma.herokuapp.com/"><i className="fas fa-globe Footer-icons"></i></a></li>
                 </ul>
             </div>
         </div>

@@ -29,20 +29,19 @@ const Dashboard = () =>{
     return(
         <div className="DashBoard">
             {Blog.length === 0 ? (
-                <>
+                <div key="0">
                     <h1>No Published blogs </h1>
                     <Link to="/write">
                         <button className="nav-btn">Publish First Blog </button>
                     </Link>
-                </>
+                </div>
             )
             : (
                 <>
             <h1>Your Publications </h1>
             {Blog.map((blog) =>{
                 return(
-                    <>
-                    <div id={blog._id} className="Blog-list">
+                    <div key={blog._id} id={blog._id} className="Blog-list">
                         <div>
                             <h1>{blog.BlogTitle}</h1>
                         </div>
@@ -57,7 +56,6 @@ const Dashboard = () =>{
                             }} className="nav-btn">Delete</button>
                         </div>
                     </div>
-                    </>
                 )
             })}
             <Link to="/write">

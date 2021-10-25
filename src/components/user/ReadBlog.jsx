@@ -17,6 +17,7 @@ const ReadBlog = ({match}) =>{
     }
     useEffect(() =>{
         getblog();
+       // eslint-disable-next-line 
     },[])
     return(
         <div className ="ReadBlog">

@@ -535,6 +535,26 @@ textarea {
     margin: 3px;
 }
 
+.Footer-icons {
+    color: white;
+    margin: 6px;
+    font-size: 20px;
+}
+
+.Footer-icons:hover {
+    animation: jump 0.7s ease-in-out;
+}
+
+@keyframes jump {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .Social-Footer-li li {
     list-style: none;
     margin: 3px;

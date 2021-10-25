@@ -51,7 +51,7 @@ const Navbar = ({ index }) =>{
         <>
         <nav>
             <div className='nav-logo'>
-                <h4>Logo</h4>
+                <h4>Blogger</h4>
             </div>
             <ul className="nav-links">
             <Link to="/">
