@@ -17,7 +17,6 @@ function App() {
     if(data){
       i = 1;
     }
-    console.log(i);
   }
   status();
   return (
