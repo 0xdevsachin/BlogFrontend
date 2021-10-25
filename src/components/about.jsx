@@ -41,7 +41,7 @@ const About = ()=>{
             </div>   
         </div>
         <div>
-           <Link to="/about"> <button className="About-btn">Write blog</button></Link>
+           <Link to="/signin"> <button className="About-btn">Write blog</button></Link>
         </div>
         </div>
         </>
