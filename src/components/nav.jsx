@@ -15,7 +15,7 @@ const Navbar = ({ index }) =>{
             title3 : "Blogs"
         },
         {
-            title4 : "Contact",
+            title4 : "Dev",
         },
     ],[
         {
@@ -29,7 +29,7 @@ const Navbar = ({ index }) =>{
             title3 : "Blogs"
         },
         {
-            title4 : "Contact",
+            title4 : "Dev",
         }
     ]
     ]);

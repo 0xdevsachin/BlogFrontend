@@ -10,6 +10,7 @@ import Signup from './components/signup';
 import Dashboard from './components/user/dashboard';
 import Write from './components/user/write';
 import ReadBlog from './components/user/ReadBlog';
+import contact from './components/contact';
 function App() {
   var i = 0;
   const status = () =>{
@@ -29,6 +30,7 @@ function App() {
              <Route path="/" exact component={Dashboard} />
              <Route path="/write" component={Write} />
              <Route path="/blogs" component={Work} />
+             <Route path="/contact" component={contact} />
              <Route path="/readblog/:id" component={ReadBlog} />
              <Redirect from="*" to="/" />
              </>
@@ -37,7 +39,7 @@ function App() {
            <Route path="/" exact component={Home} />
            <Route path="/about" component={About} />
            <Route path="/blogs" component={Work} />
-           <Route path="/contact" component={Home} />
+           <Route path="/contact" component={contact} />
            <Route path="/signin" component={Signin} />
            <Route path="/signup" component={Signup} />
            <Route path="/readblog/:id" component={ReadBlog} />
