@@ -13,7 +13,8 @@ const Write = () =>{
         BlogTitle : "",
         BlogImage:"",
         BlogContent:"",
-        userID : Logindata
+        userID : Logindata,
+        PublishName : ""
     }
     const SubmitBlog = (e) =>{
         e.preventDefault();
@@ -47,6 +48,8 @@ const Write = () =>{
                 <input type="text" placeholder="Enter Public Image Link (if any)" onChange={(e) => {BlogData.BlogImage = e.target.value}} />
                 <h2>Blog Content</h2>
                 <textarea name="" placeholder="Write Content" cols="30" rows="10" required onChange={(e) => {BlogData.BlogContent = e.target.value}}></textarea>
+                <h2>Publisher Name</h2>
+                <input type="text" placeholder="Enter Name" onChange={(e) => {BlogData.PublishName = e.target.value}} />
                 <br />
                 <button className="Sign-btn">Save</button>
                 </form>

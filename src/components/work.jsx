@@ -18,6 +18,7 @@ const Work = () =>{
             {blog.map((myblog)=>{
                 return(
                     <div key={myblog._id}>
+                        <img src={myblog.BlogImage} height="200px" width="100%" style={{borderRadius : '10px'}} alt="Blogart" />
                         <h3>{myblog.BlogTitle}</h3>
                         <Link to={`readblog/${myblog._id}`}><button className="Work-btn">Read</button></Link>
                     </div>
