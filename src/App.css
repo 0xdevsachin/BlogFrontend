@@ -317,6 +317,31 @@ nav {
     padding-bottom: 50px;
 }
 
+.Contact-div {
+    margin: 30px;
+}
+
+.Contact-content {
+    text-align: left;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.Contact-div {
+    margin-left: 70px;
+    margin-right: 70px;
+    min-height: 20vh;
+    min-width: 250px;
+}
+
+.Contact-div p {
+    text-align: left;
+    margin: 12px auto;
+    font-weight: 600;
+}
+
 
 /* Sign In CSS */
 
