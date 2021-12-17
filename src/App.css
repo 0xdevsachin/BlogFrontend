@@ -490,14 +490,16 @@ input:focus {
 .writeBlog-form input,
 textarea {
     margin: 18px;
+    background-color: rgba(102, 100, 100, 0.719);
     width: 80%;
     border: none;
     outline: none;
     min-height: 6vh;
     padding: 10px;
-    border-radius: 10px;
-    color: #4b5b6d;
-    font-weight: 400;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 
@@ -550,6 +552,11 @@ textarea {
     }
 }
 
+/* Update blog  */
+
+.updateblog{
+    
+}
 
 /* Footer CSS */
 

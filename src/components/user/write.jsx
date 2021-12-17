@@ -29,9 +29,9 @@ const Write = () =>{
                 <h2>Title </h2>
                 <input type="text" value={BlogTitle} placeholder="Blog Title" required onChange={(e) =>{settitle(e.target.value)}}/>
                 <h2>Image Link</h2>
-                <input type="text" value={BlogImage} placeholder="Enter Public Image Link (if any)" onChange={(e) => {setImage(e.target.value)}} />
+                <input type="text" value={BlogImage} placeholder="Image Link" onChange={(e) => {setImage(e.target.value)}} />
                 <h2>Blog Content</h2>
-                <textarea name="" value={BlogContent} placeholder="Write Content" cols="30" rows="10" required onChange={(e) => {setcontent(e.target.value)}}></textarea>
+                <textarea name="" value={BlogContent} placeholder="Blog Content" cols="30" rows="10" required onChange={(e) => {setcontent(e.target.value)}}></textarea>
                 <br />
                 <button className="Sign-btn">Save</button>
                 </form>
