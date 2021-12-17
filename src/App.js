@@ -21,13 +21,12 @@ import userStateContext from "./context/userContext.js";
 
 function App() {
   const {user, setuser} = useContext(userStateContext)
-  console.log(user);
   useEffect(() =>{
     const token = localStorage.getItem("auth-token");
     if(token){
       setuser(token)
     }
-  }, [])
+  }, [setuser])
   return (
       <Router>
         <div className="App">

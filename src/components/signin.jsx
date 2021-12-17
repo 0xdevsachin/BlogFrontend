@@ -5,13 +5,12 @@ import userStateContext from "../context/userContext.js";
 import axios from "axios";
 const Signin = () =>{
     const history = useHistory()
-    const { user, setuser} = useContext(userStateContext)
+    const {setuser} = useContext(userStateContext)
     const [luser, setlUser] = useState('');
     const [password, setpassword] = useState('');  
     const userSignin = async (e) =>{
         e.preventDefault();
         if(luser !== '' && password !== '' ){
-          console.log(luser, password)
           let payload = { username : luser, password}
           axios.post("/api/auth/signin", payload).then((data) =>{
               console.log(data);
@@ -20,7 +19,6 @@ const Signin = () =>{
               alert(data.data.msg);
               history.push('/');
           })
-          console.log(user, "user state");
           setlUser('')
           setpassword('')
         }
@@ -39,10 +37,10 @@ const Signin = () =>{
                     <h1>Sign In</h1>
                     <hr style={{width:'90%', margin:'auto', marginTop:'20px', marginBottom:'50px'}} />
                     <label htmlFor=""><i className="fa fa-user icon"> </i></label>
-                    <input type="text" value={luser} placeholder="Email" required onChange={(e) =>{setlUser(e.target.value)}} />
+                    <input type="text" autoComplete="username" value={luser} placeholder="Email" required onChange={(e) =>{setlUser(e.target.value)}} />
                     <br />
                     <label htmlFor=""><i className="fa fa-key icon"> </i></label>
-                    <input type="password" value={password} placeholder="Password" onChange={(e) =>{setpassword(e.target.value)}} required />
+                    <input type="password" autoComplete="current-password" value={password} placeholder="Password" onChange={(e) =>{setpassword(e.target.value)}} required />
                     <br />
                     <div className="form-link">
                         <Link to="/signup"><p className="form-link2">Create new account</p></Link>
