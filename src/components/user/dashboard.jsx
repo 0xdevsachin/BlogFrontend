@@ -24,6 +24,17 @@ const Dashboard = () =>{
     }
     fetchData();
     }, [user])
+    const DeleteBlog = async(id) =>{
+        if(!window.confirm("Are you Sure ?")) return
+        const updatedblog = Blog.filter((index,_id) => index._id !== id )
+        setBlog(updatedblog)
+        await axios.delete(`/api/deleteBlog/${id}`, {
+            headers : {
+                "auth-token" : user
+            }
+        })
+        alert("Blog deleted Successfully !")
+    }
     return(
         <div className="DashBoard">
             {Blog.length === 0 ? (
@@ -45,13 +56,7 @@ const Dashboard = () =>{
                         </div>
                         <div>
                             <Link to={`/readblog/${blog._id}`}><button className="nav-btn">Read</button></Link>
-                            <button onClick={() =>{
-                                axios.delete(`/api/deleteBlog/${blog._id}`).catch((err) =>{
-                                    console.log("Error !")
-                                })
-                                alert("Blog deleted Successfully !")
-                                document.getElementById(blog._id).style.display ="none";
-                            }} className="nav-btn">Delete</button>
+                            <button onClick={() => { DeleteBlog(blog._id)}} className="nav-btn">Delete</button>
                         </div>
                     </div>
                 )
