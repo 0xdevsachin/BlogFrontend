@@ -31,8 +31,8 @@ const ReadBlog = ({match}) =>{
                 ) : (
                     <div className = "Blog-Area">
                     <h1>{readblogs.BlogTitle}</h1>
-                    {readblogs.BlogImage !== '' ? <img src={readblogs.BlogImage} style={{height:"50vh", width:"100%", objectFit:"contain", margin:"20px auto"}} alt="Blog" /> : <></>}
-                    <p>{readblogs.BlogContent}</p>
+                    {readblogs.BlogImage !== '' ? <img src={readblogs.BlogImage} style={{height:"40vh", width:"100%", objectFit:"contain", margin:"25px auto"}} alt="Blog" /> : <></>}
+                    <div style={{whiteSpace: "pre-line"}}>{readblogs.BlogContent}</div>
                     <p> Published By : {readblogs.PublishName}</p>
                     </div>
                 )}
