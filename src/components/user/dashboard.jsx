@@ -56,6 +56,7 @@ const Dashboard = () =>{
                         </div>
                         <div>
                             <Link to={`/readblog/${blog._id}`}><button className="nav-btn">Read</button></Link>
+                            <Link to={`/updateblog/${blog._id}`}><button className="nav-btn">Update</button></Link>
                             <button onClick={() => { DeleteBlog(blog._id)}} className="nav-btn">Delete</button>
                         </div>
                     </div>

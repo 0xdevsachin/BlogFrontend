@@ -18,6 +18,7 @@ import Write from "./components/user/write";
 import ReadBlog from "./components/user/ReadBlog";
 import Dev from "./components/contact";
 import userStateContext from "./context/userContext.js";
+import updateBlog from "./components/user/updateBlog";
 
 function App() {
   const {user, setuser} = useContext(userStateContext)
@@ -36,6 +37,7 @@ function App() {
               <>
                 <Route path="/" exact component={Dashboard} />
                 <Route path="/write" component={Write} />
+                <Route path="/updateblog/:id" component={updateBlog} />
                 <Route path="/about" component={About} />
                 <Route path="/blogs" component={Work} />
                 <Route path="/dev" component={Dev} />
