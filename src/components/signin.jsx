@@ -13,7 +13,6 @@ const Signin = () =>{
         if(luser !== '' && password !== '' ){
           let payload = { username : luser, password}
           axios.post("/api/auth/signin", payload).then((data) =>{
-              console.log(data);
               localStorage.setItem("auth-token", data.data.authtoken)
               setuser(data.data.authtoken);
               alert(data.data.msg);
