@@ -1,43 +1,15 @@
 import React from "react";
 import '../../App.css';
-import { useHistory } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 const Write = () =>{
-    const history = useHistory();
-    const Logindata = localStorage.getItem('Bloglogin')
-    if(!Logindata){
-        alert("Oops something Went Wrong! Please Sign in Again")
-        window.location.reload();
-    }
     var BlogData = {
         BlogTitle : "",
         BlogImage:"",
         BlogContent:"",
-        userID : Logindata,
         PublishName : ""
     }
     const SubmitBlog = (e) =>{
         e.preventDefault();
-        if(!localStorage.getItem('Bloglogin')){
-            window.location.reload();
-            history.push('/')
-            return;
-        }
-        if(BlogData.BlogTitle !== '' && BlogData.BlogContent !== ''){
-            axios.post("/api/PublishBlog", BlogData).then((data) =>{
-                alert(data.data.msg)
-                if(data.data.redirect === true){
-                    localStorage.removeItem('Bloglogin');
-                    window.location.reload();
-                }
-                history.push('/')
-            }).catch((err) =>{
-                alert(err);
-            })
-        }else{
-            alert("Something Went Wrong !")
-            history.push('/write');
-        }
     }
     return(
         <div className="writeBlog">

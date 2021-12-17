@@ -1,91 +1,78 @@
-import React, {useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import '../App.css';
-const Navbar = ({ index }) =>{
-    const history = useHistory();
-    const [navState] = useState([
-        [{
-            title : "Home",
-        },
-        {
-            title2 : "About",
-            link : "/about"
-        },
-        {
-            title3 : "Blogs"
-        },
-        {
-            title4 : "Dev",
-        },
-    ],[
-        {
-            title : "DashBoard",
-        },
-        {
-            title2 : "Write",
-            link : "/write"
-        },
-        {
-            title3 : "Blogs"
-        },
-        {
-            title4 : "Dev",
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
+import userStateContext from "../context/userContext";
+const Navbar = () => {
+    const Signout = () =>{
+        localStorage.removeItem("auth-token")
+        setuser(null)
+    }
+  const { user, setuser } = useContext(userStateContext);
+  const NavActive = () => {
+    const navlink = document.querySelector(".nav-links");
+    navlink.classList.toggle("nav-active");
+    const lists = document.querySelector("ul");
+    lists.addEventListener("click", () => {
+      navlink.classList.remove("nav-active");
+    });
+  };
+  return (
+    <>
+      <nav>
+        <div className="nav-logo">
+          <h4>Blogger</h4>
+        </div>
+        <ul className="nav-links">
+          { user ?
+          <>
+          <Link to="/">
+            <li>DashBoard</li>
+          </Link>
+          <Link to="/write">
+            <li>Write</li>
+          </Link>
+          <Link to="/blogs">
+            <li>Blogs</li>
+          </Link>
+          <Link to="/dev">
+            <li>Dev</li>
+          </Link>
+          <Link to="/" onClick={Signout}>
+            <li>
+              <button className="nav-btn">Sign Out</button>
+            </li>
+          </Link>
+          </>
+          :
+          <>
+          <Link to="/">
+            <li>Home</li>
+          </Link>
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          <Link to="/blogs">
+            <li>Blogs</li>
+          </Link>
+          <Link to="/dev">
+            <li>Dev</li>
+          </Link>
+          <Link to="/signin">
+            <li>
+              <button className="nav-btn">Sign In</button>
+            </li>
+          </Link>
+          </>  
         }
-    ]
-    ]);
-
-    const removeItem = () =>{
-        localStorage.removeItem('Bloglogin')
-        window.location.reload();
-        history.push('/signin')
-    }
-    const NavActive =  () =>{
-        const navlink = document.querySelector('.nav-links');
-        navlink.classList.toggle('nav-active');
-        const lists = document.querySelector('ul');
-        lists.addEventListener('click', ()=>{
-            navlink.classList.remove('nav-active');
-        })
-    }
-    return(
-        <>
-        <nav>
-            <div className='nav-logo'>
-                <h4>Blogger</h4>
-            </div>
-            <ul className="nav-links">
-            <Link to="/">
-                        <li>{navState[index][0].title}</li>
-                    </Link>
-                    <Link to={navState[index][1].link}>
-                        <li>{navState[index][1].title2}</li>
-                    </Link>
-                    <Link to="/blogs">
-                        <li>{navState[index][2].title3}</li>
-                    </Link>
-                    <Link to="/contact">
-                        <li>{navState[index][3].title4}</li>
-                    </Link>
-                    {index === 1 ? (
-                        <>
-                            <li><button onClick={removeItem} className="nav-btn">Sign Out</button></li>
-                        </>
-                    ) : (
-                        <>
-                        <Link to="/signin">
-                            <li><button className="nav-btn">Sign In</button></li>
-                        </Link>
-                        </>
-                    )}
-            </ul>
-           <div className='nav-menu' onClick={NavActive}>
-               <div className='line1'></div>
-               <div className='line2'></div>
-               <div className='line3'></div>
-           </div>
-        </nav>
-        </>
-    );
-}
+        </ul>
+        <div className="nav-menu" onClick={NavActive}>
+          <div className="line1"></div>
+          <div className="line2"></div>
+          <div className="line3"></div>
+        </div>
+      </nav>
+    </>
+  );
+};
 
 export default Navbar;

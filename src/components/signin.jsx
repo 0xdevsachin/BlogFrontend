@@ -1,31 +1,34 @@
-import React from "react";
+import React, { useContext, useState} from "react";
 import '../App.css';
 import { Link, useHistory } from "react-router-dom";
-import axios from 'axios';
+import userStateContext from "../context/userContext.js";
+import axios from "axios";
 const Signin = () =>{
     const history = useHistory()
-    var FormData = {
-        username:"",
-        password:"",
-    }
-    const userSignin = (e) =>{
+    const { user, setuser} = useContext(userStateContext)
+    const [luser, setlUser] = useState('');
+    const [password, setpassword] = useState('');  
+    const userSignin = async (e) =>{
         e.preventDefault();
-        if(FormData.username !== '' && FormData.password !== '' ){
-            axios.post("/api/auth/signin", FormData).then((data)=>{
-                console.log(data);
-                alert(data.data.msg)
-                localStorage.setItem('Bloglogin', data.data.user._id);
-                window.location.reload();
-                history.push('/');
-            }).catch((err)=>{
-                console.log(err);
-                localStorage.removeItem('Bloglogin');
-            })
+        if(luser !== '' && password !== '' ){
+          console.log(luser, password)
+          let payload = { username : luser, password}
+          axios.post("/api/auth/signin", payload).then((data) =>{
+              console.log(data);
+              localStorage.setItem("auth-token", data.data.authtoken)
+              setuser(data.data.authtoken);
+              alert(data.data.msg);
+              history.push('/');
+          })
+          console.log(user, "user state");
+          setlUser('')
+          setpassword('')
         }
         else{
+            setuser(null)
+            setlUser('')
+            setpassword('')
             alert("Something Went Wrong :(")
-            localStorage.removeItem('Bloglogin');
-            history.push('/signin')
         }
     }
     return(
@@ -36,10 +39,10 @@ const Signin = () =>{
                     <h1>Sign In</h1>
                     <hr style={{width:'90%', margin:'auto', marginTop:'20px', marginBottom:'50px'}} />
                     <label htmlFor=""><i className="fa fa-user icon"> </i></label>
-                    <input type="text" placeholder="Email" required onChange={(e) =>{FormData.username = e.target.value}} />
+                    <input type="text" value={luser} placeholder="Email" required onChange={(e) =>{setlUser(e.target.value)}} />
                     <br />
                     <label htmlFor=""><i className="fa fa-key icon"> </i></label>
-                    <input type="password" placeholder="Password" onChange={(e) =>{FormData.password = e.target.value}} required />
+                    <input type="password" value={password} placeholder="Password" onChange={(e) =>{setpassword(e.target.value)}} required />
                     <br />
                     <div className="form-link">
                         <Link to="/signup"><p className="form-link2">Create new account</p></Link>
