@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import userStateContext from "../context/userContext";
 const Navbar = () => {
-    const Signout = () =>{
-        localStorage.removeItem("auth-token")
-        setuser(null)
-    }
+  const Signout = () => {
+    localStorage.removeItem("auth-token");
+    setuser(null);
+  };
   const { user, setuser } = useContext(userStateContext);
   const NavActive = () => {
     const navlink = document.querySelector(".nav-links");
@@ -20,50 +20,52 @@ const Navbar = () => {
     <>
       <nav>
         <div className="nav-logo">
-          <h4>Blogger</h4>
+          <Link to="/" style={{textDecoration : "none", color: "white"}}>
+            <h4>Blogger</h4>
+          </Link>
         </div>
         <ul className="nav-links">
-          { user ?
-          <>
-          <Link to="/">
-            <li>DashBoard</li>
-          </Link>
-          <Link to="/write">
-            <li>Write</li>
-          </Link>
-          <Link to="/blogs">
-            <li>Blogs</li>
-          </Link>
-          <Link to="/dev">
-            <li>Dev</li>
-          </Link>
-          <Link to="/" onClick={Signout}>
-            <li>
-              <button className="nav-btn">Sign Out</button>
-            </li>
-          </Link>
-          </>
-          :
-          <>
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/blogs">
-            <li>Blogs</li>
-          </Link>
-          <Link to="/dev">
-            <li>Dev</li>
-          </Link>
-          <Link to="/signin">
-            <li>
-              <button className="nav-btn">Sign In</button>
-            </li>
-          </Link>
-          </>  
-        }
+          {user ? (
+            <>
+              <Link to="/">
+                <li>DashBoard</li>
+              </Link>
+              <Link to="/write">
+                <li>Write</li>
+              </Link>
+              <Link to="/blogs">
+                <li>Blogs</li>
+              </Link>
+              <Link to="/dev">
+                <li>Dev</li>
+              </Link>
+              <Link to="/" onClick={Signout}>
+                <li>
+                  <button className="nav-btn">Sign Out</button>
+                </li>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/">
+                <li>Home</li>
+              </Link>
+              <Link to="/about">
+                <li>About</li>
+              </Link>
+              <Link to="/blogs">
+                <li>Blogs</li>
+              </Link>
+              <Link to="/dev">
+                <li>Dev</li>
+              </Link>
+              <Link to="/signin">
+                <li>
+                  <button className="nav-btn">Sign In</button>
+                </li>
+              </Link>
+            </>
+          )}
         </ul>
         <div className="nav-menu" onClick={NavActive}>
           <div className="line1"></div>
