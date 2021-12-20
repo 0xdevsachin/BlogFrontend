@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import '../../App.css';
 import axios from 'axios';
 import userStateContext from "../../context/userContext.js";
+import { useHistory } from "react-router-dom";
 const Write = () =>{
-    const { user } = useContext(userStateContext)
+    const { user, setuser } = useContext(userStateContext)
     const [BlogTitle, settitle] = useState('')
     const [BlogImage, setImage] = useState('')
     const [BlogContent, setcontent] = useState('')
+    const history = useHistory();
     const SubmitBlog = (e) =>{
         e.preventDefault();
         console.log()
@@ -23,6 +25,18 @@ const Write = () =>{
             settitle('')
         }
     }
+    useEffect(() =>{
+        const checkAuth = () =>{
+            if(localStorage.getItem("auth-token") !== user){
+                localStorage.removeItem("auth-token")
+                setuser(null);
+                alert("Please Login Again to Continue")
+                history.push("/signin")
+            }
+        }
+        checkAuth();
+        // eslint-disable-next-line
+    }, [])
     return(
         <div className="writeBlog">
             <form action="" onSubmit={SubmitBlog} className="writeBlog-form">

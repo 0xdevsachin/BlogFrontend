@@ -4,7 +4,7 @@ import axios from "axios";
 import userStateContext from "../../context/userContext.js";
 import { useHistory } from "react-router-dom";
 const UpdateBlog = ({ match }) => {
-  const { user } = useContext(userStateContext);
+  const { user, setuser } = useContext(userStateContext);
   const history = useHistory();
   let BlogData = {
     title: "",
@@ -38,15 +38,22 @@ const UpdateBlog = ({ match }) => {
   };
   useEffect(() => {
     const fetchblogs = async () => {
-      await axios.get(`/api/Getblog/${match.params.id}`).then((data) => {
-        var response = data.data.msg;
-        BlogData.title = response.BlogTitle;
-        BlogData.content = response.BlogContent;
-        BlogData.img = response.BlogImage;
-        document.getElementById("title").value = BlogData.title;
-        document.getElementById("content").value = BlogData.content;
-        document.getElementById("img").value = BlogData.img;
-      });
+      if(localStorage.getItem("auth-token") === user ){
+        await axios.get(`/api/Getblog/${match.params.id}`).then((data) => {
+          var response = data.data.msg;
+          BlogData.title = response.BlogTitle;
+          BlogData.content = response.BlogContent;
+          BlogData.img = response.BlogImage;
+          document.getElementById("title").value = BlogData.title;
+          document.getElementById("content").value = BlogData.content;
+          document.getElementById("img").value = BlogData.img;
+        });
+      }else{
+        localStorage.removeItem("auth-token")
+        alert("Please Login Again to Continue")
+        setuser(null);
+        history.push('/signin')
+      }
     };
     fetchblogs();
     // eslint-disable-next-line

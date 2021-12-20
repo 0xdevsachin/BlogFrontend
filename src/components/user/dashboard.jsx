@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import '../../App.css';
-import { Link} from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 import userStateContext from '../../context/userContext';
 const Dashboard = () =>{
-    const { user } = useContext(userStateContext);
+    const { user, setuser } = useContext(userStateContext);
+    const history = useHistory();
     const [Blog, setBlog] = useState([{
         BlogTitle : '',
         BlogContent : '',
@@ -12,19 +13,38 @@ const Dashboard = () =>{
     }])
     useEffect(() =>{
         async function fetchData(){
-        await axios.post("/api/getuserblog", {}, {
-            headers : {
-                "auth-token" : user
-            }
-        }).then((recvdata) =>{
-            setBlog(recvdata.data);
-        }).catch((err) =>{
-            console.log(err);
-        })
+        if(localStorage.getItem("auth-token") === user){
+            await axios.post("/api/getuserblog", {}, {
+                headers : {
+                    "auth-token" : user
+                }
+            }).then((recvdata) =>{
+                setBlog(recvdata.data);
+                if(recvdata.data.authError){
+                    setuser(null);
+                    history.push('/signin')
+                }
+            }).catch((err) =>{
+                console.log(err);
+            })
+        }else{
+            localStorage.removeItem("auth-token")
+            alert("Please Login Again to Continue")
+            setuser(null);
+            history.push('/signin')
+        }
     }
     fetchData();
-    }, [user])
+    // eslint-disable-next-line
+    }, [])
     const DeleteBlog = async(id) =>{
+        if(localStorage.getItem("auth-token") !== user){
+            localStorage.removeItem("auth-token")
+            alert("Please Login Again to Continue")
+            setuser(null);
+            history.push('/signin')
+            return
+        }
         if(!window.confirm("Are you Sure ?")) return
         const updatedblog = Blog.filter((index,_id) => index._id !== id )
         setBlog(updatedblog)
