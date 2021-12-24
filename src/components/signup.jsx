@@ -11,7 +11,7 @@ const Signup = () => {
   const Register = async (e) => {
     e.preventDefault();
     if(uname.length < 4){
-      alert("Password should be at least 4 characters");
+      alert("Username should be at least 4 characters");
       return;
     }
     if (pass.length < 6) {

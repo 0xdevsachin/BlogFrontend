@@ -163,6 +163,7 @@ nav {
 .About-Content div p {
     font-size: 1.3rem;
     word-spacing: 2px;
+    line-height: 50px;
 }
 
 .larger {

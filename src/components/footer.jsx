@@ -27,11 +27,6 @@ const Footer = () => {
                   <i className="fab fa-twitter Footer-icons"></i>
                 </a>
               </li>
-              <li>
-                <a href="https://sachin-verma.herokuapp.com/">
-                  <i className="fas fa-globe Footer-icons"></i>
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -41,7 +36,7 @@ const Footer = () => {
             &#169;2021. All rights Reserved
           </p>
           <p style={{ textAlign: "center", color: "white", margin: "12px 0" }}>
-            Created by{" "}
+            Made with 💖 by{"   "}
             <a
               rel="noreferrer"
               href="https://github.com/0xdevsachin"

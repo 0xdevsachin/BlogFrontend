@@ -50,7 +50,7 @@ const Signin = () => {
               type="text"
               autoComplete="username"
               value={luser}
-              placeholder="Email"
+              placeholder="Username"
               required
               onChange={(e) => {
                 setlUser(e.target.value);
